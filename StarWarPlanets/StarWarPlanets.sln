@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarPlanets.Domain", "StarWarPlanets.Domain\StarWarPlanets.Domain.csproj", "{4EFD81A6-3887-42F1-B4F1-28F6F873B195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarPlanets.Repository", "StarWarPlanets.Repository\StarWarPlanets.Repository.csproj", "{1EFE50DC-1BFE-4896-B001-8E69313D898D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarPlanets.Web", "StarWarPlanets.Web\StarWarPlanets.Web.csproj", "{D72FCF83-7A0B-410B-B8D1-3227AEE7419D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EFD81A6-3887-42F1-B4F1-28F6F873B195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFD81A6-3887-42F1-B4F1-28F6F873B195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFD81A6-3887-42F1-B4F1-28F6F873B195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFD81A6-3887-42F1-B4F1-28F6F873B195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EFE50DC-1BFE-4896-B001-8E69313D898D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFE50DC-1BFE-4896-B001-8E69313D898D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFE50DC-1BFE-4896-B001-8E69313D898D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFE50DC-1BFE-4896-B001-8E69313D898D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D72FCF83-7A0B-410B-B8D1-3227AEE7419D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D72FCF83-7A0B-410B-B8D1-3227AEE7419D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D72FCF83-7A0B-410B-B8D1-3227AEE7419D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D72FCF83-7A0B-410B-B8D1-3227AEE7419D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
