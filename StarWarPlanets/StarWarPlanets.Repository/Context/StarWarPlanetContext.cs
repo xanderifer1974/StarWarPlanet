@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StarWarPlanets.Domain.Entidades;
+using StarWarPlanets.Repository.Config;
 
 namespace StarWarPlanets.Repository.Context
 {
@@ -10,6 +11,13 @@ namespace StarWarPlanets.Repository.Context
         public StarWarPlanetContext(DbContextOptions options) : base(options)
         {           
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new PlanetaConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
