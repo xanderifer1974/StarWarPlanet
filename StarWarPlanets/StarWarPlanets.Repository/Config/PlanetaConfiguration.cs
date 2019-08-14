@@ -8,7 +8,22 @@ namespace StarWarPlanets.Repository.Config
     {
         public void Configure(EntityTypeBuilder<Planeta> builder)
         {
-            throw new System.NotImplementedException();
+            builder.HasKey(p => p.Id);
+            builder
+                .Property(p => p.Nome)
+                .IsRequired()
+                .HasMaxLength(30);
+            builder
+                .Property(p => p.Clima)
+                .IsRequired()
+                .HasMaxLength(50);
+            builder
+                .Property(p => p.Terreno)
+                .IsRequired()
+                .HasMaxLength(200);
+            builder
+                .Property(p => p.QtdAparicao)
+                .IsRequired();
         }
     }
 }
