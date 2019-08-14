@@ -28,7 +28,7 @@ namespace StarWarPlanets.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //Configuração da conexão com o banco de dados 
-            var connectionString = Configuration.GetConnectionString("StarWarPlanetsDb");
+            var connectionString = Configuration.GetConnectionString("StarWarPlanetsDB");
             services.AddDbContext<StarWarPlanetContext>(option => option.UseMySql(connectionString,
                                                                              m => m.MigrationsAssembly("StarWarPlanets.Repository")));
         }
