@@ -2,7 +2,7 @@
 
 namespace StarWarPlanets.Domain.Contratos
 {
-    interface IPlanetaRepository: IBaseRepository<Planeta>
+   public interface IPlanetaRepository: IBaseRepository<Planeta>
     {
     }
 }
