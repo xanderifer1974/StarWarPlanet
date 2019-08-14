@@ -1,6 +1,7 @@
 {
   "ConnectionStrings": {
     "SqlServerConnection": "",
-    "QuickBuyDB": "server=localhost;uid=root;pwd=duda0107;database=StarWarPlanetsDB"
+    "StarWarPlanetsDB": "server=localhost;uid=root;pwd=duda0107;database=StarWarPlanetsDB"
   }
+
 }
