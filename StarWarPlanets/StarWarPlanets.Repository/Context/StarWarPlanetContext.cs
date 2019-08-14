@@ -7,5 +7,9 @@ namespace StarWarPlanets.Repository.Context
     {
         public DbSet<Planeta> Planetas { get; set; }
 
+        public StarWarPlanetContext(DbContextOptions options) : base(options)
+        {           
+
+        }
     }
 }
