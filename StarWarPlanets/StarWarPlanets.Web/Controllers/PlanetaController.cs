@@ -34,6 +34,26 @@
                     return BadRequest(ex.ToString());
                 }
             }
+
+            /// <summary>
+            /// Retorna todos os planetas por id
+            /// /api/planeta/id
+            /// </summary>
+            /// <returns></returns>  
+            [HttpGet("{id}")]
+            public IActionResult Get(int id)
+            {
+
+                try
+                {
+                    return Ok(_planetaRepository.ObterPorId(id));
+
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.ToString());
+                }
+            }
             /// <summary>
             /// Insere um novo planeta no banco de dados
             /// </summary>
