@@ -1,48 +1,63 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using StarWarPlanets.Domain.Contratos;
+using StarWarPlanets.Repository.Context;
 
 namespace StarWarPlanets.Repository.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        public BaseRepository()
-        {
+        /// <summary>
+        /// Adicionando referência a classe DbContext
+        /// </summary>
+        private readonly StarWarPlanetContext StarWarPlanetContext;
 
+        public BaseRepository(StarWarPlanetContext starWarPlanetContext)
+        {
+            StarWarPlanetContext = starWarPlanetContext;
         }
 
         public void Adicionar(TEntity entity)
         {
-            throw new System.NotImplementedException();
+            StarWarPlanetContext.Set<TEntity>().Add(entity);
+            StarWarPlanetContext.SaveChanges();
         }
 
         public void Atualizar(TEntity entity)
         {
-            throw new System.NotImplementedException();
+            StarWarPlanetContext.Set<TEntity>().Update(entity);
+            StarWarPlanetContext.SaveChanges();
         }      
 
         public TEntity ObterPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return StarWarPlanetContext.Set<TEntity>().Find(id);
         }
 
+        /// <summary>
+        /// Confirmar se o método está correto
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public TEntity ObterPorNome(string nome)
         {
-            throw new System.NotImplementedException();
+            return StarWarPlanetContext.Set<TEntity>().Find(nome);
         }
 
         public IEnumerable<TEntity> ObterTodos()
         {
-            throw new System.NotImplementedException();
+            return StarWarPlanetContext.Set<TEntity>().ToList();
         }
 
         public void Remover(TEntity entity)
         {
-            throw new System.NotImplementedException();
+            StarWarPlanetContext.Remove(entity);
+            StarWarPlanetContext.SaveChanges();
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            StarWarPlanetContext.Dispose();
         }
     }
 }
