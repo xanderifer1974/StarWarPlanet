@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StarWarPlanets.Domain.Contratos;
 using StarWarPlanets.Repository.Context;
+using StarWarPlanets.Repository.Repositories;
 
 namespace StarWarPlanets.Web
 {
@@ -31,6 +33,9 @@ namespace StarWarPlanets.Web
             var connectionString = Configuration.GetConnectionString("StarWarPlanetsDB");
             services.AddDbContext<StarWarPlanetContext>(option => option.UseMySql(connectionString,
                                                                              m => m.MigrationsAssembly("StarWarPlanets.Repository")));
+            //Configura a controller Planeta Controller
+            services.AddScoped<IPlanetaRepository, PlanetaRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
