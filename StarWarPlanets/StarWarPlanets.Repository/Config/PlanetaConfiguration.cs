@@ -26,4 +26,4 @@ namespace StarWarPlanets.Repository.Config
                 .IsRequired();
         }
     }
-}
+}   

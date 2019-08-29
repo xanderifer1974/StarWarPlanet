@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using StarWarPlanets.Domain.Contratos;
 using StarWarPlanets.Domain.Entidades;
 using StarWarPlanets.Repository.Context;
@@ -14,13 +15,17 @@ namespace StarWarPlanets.Repository.Repositories
         }
       
 
+        /// <summary>
+        /// Obtem planeta por nome
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public Planeta ObterPlanetaPorNome(string nome)
         {
             var optionsBuilder = new DbContextOptionsBuilder<StarWarPlanetContext>();
-
-            var dbcontext = new StarWarPlanetContext(optionsBuilder.Options);
-           
-            return dbcontext.Planetas.FirstOrDefault(p => p.Nome == nome);
+            optionsBuilder.UseMySql("server=localhost;uid=root;pwd=duda0107;database=StarWarPlanetsDB;", m => m.MigrationsAssembly("StarWarPlanets.Repository"));
+            var starWarPlanetContext = new StarWarPlanetContext(optionsBuilder.Options);
+            return starWarPlanetContext.Planetas.FirstOrDefault(p => p.Nome == nome);
         }
     }
 }

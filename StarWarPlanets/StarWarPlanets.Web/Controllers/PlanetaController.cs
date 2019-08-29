@@ -41,7 +41,7 @@
             /// </summary>
             /// <returns></returns>  
             [HttpGet("[action]")]
-            public IActionResult Get([FromQuery] string nome)
+            public IActionResult GetByNome([FromQuery] string nome)
             {
 
                 try
