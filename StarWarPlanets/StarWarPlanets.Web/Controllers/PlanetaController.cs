@@ -47,16 +47,16 @@
                 try
                 {
                     var planeta = _planetaRepository.ObterPlanetaPorNome(nome);
-                    return Ok(planeta);
-                    //if (planeta == null)
-                    //{
-                        
-                    //}
-                    //else
-                    //{
-                    //    return Ok(planeta);
-                    //}
-                  
+                   
+                    if (planeta == null)
+                    {
+                        return BadRequest("Nome do Planeta não encontrado.");
+                    }
+                    else
+                    {
+                        return Ok(planeta);
+                    }
+
 
                 }
                 catch (Exception ex)
