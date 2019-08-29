@@ -103,8 +103,32 @@
                 {
                     return BadRequest(ex.ToString());
                 }
-
             }
+
+            // PUT: api/Planeta/5
+            [HttpPut("{id}")]
+            public IActionResult AlterarPlaneta(int id, [FromBody] Planeta planeta)
+            {
+                try
+                {
+                    if (id != planeta.Id)
+                    {
+                        return BadRequest("Id não corresponde ao planeta a ser alterado.");
+                    }
+
+                    _planetaRepository.Atualizar(planeta);
+
+
+                    return Ok(planeta);
+                }
+                catch (Exception ex)
+                {
+
+                    return BadRequest(ex.ToString());
+                }
+            }
+
         }
+        
     }
 }

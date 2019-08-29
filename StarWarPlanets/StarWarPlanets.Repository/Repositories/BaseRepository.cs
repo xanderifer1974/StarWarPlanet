@@ -25,24 +25,19 @@ namespace StarWarPlanets.Repository.Repositories
 
         public void Atualizar(TEntity entity)
         {
-            StarWarPlanetContext.Set<TEntity>().Update(entity);
-            StarWarPlanetContext.SaveChanges();
+            if (entity != null)
+            {
+                StarWarPlanetContext.Set<TEntity>().Update(entity);
+                StarWarPlanetContext.SaveChanges();
+            }           
+           
         }      
 
         public TEntity ObterPorId(int id)
         {
             return StarWarPlanetContext.Set<TEntity>().Find(id);
         }
-
-        /// <summary>
-        /// Confirmar se o método está correto
-        /// </summary>
-        /// <param name="nome"></param>
-        /// <returns></returns>
-        public TEntity ObterPorNome(string nome)
-        {
-            return StarWarPlanetContext.Set<TEntity>().Find(nome);
-        }
+               
 
         public IEnumerable<TEntity> ObterTodos()
         {
@@ -51,8 +46,12 @@ namespace StarWarPlanets.Repository.Repositories
 
         public void Remover(TEntity entity)
         {
-            StarWarPlanetContext.Remove(entity);
-            StarWarPlanetContext.SaveChanges();
+            if (entity != null)
+            {
+                StarWarPlanetContext.Remove(entity);
+                StarWarPlanetContext.SaveChanges();
+            }
+           
         }
 
         public void Dispose()
