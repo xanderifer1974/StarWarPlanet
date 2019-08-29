@@ -20,13 +20,42 @@
             /// Retorna todos os planetas
             /// </summary>
             /// <returns></returns>  
-            [HttpGet]
-            public IActionResult Get()
+            //[HttpGet]
+            //public IActionResult Get()
+            //{
+
+            //    try
+            //    {
+                   
+            //        return Ok(_planetaRepository.ObterTodos());
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        return BadRequest(ex.ToString());
+            //    }
+            //}
+
+            /// <summary>
+            /// Retorna planeta por nome
+            /// </summary>
+            /// <returns></returns>  
+            [HttpGet()]          
+            public IActionResult Get(string nome="Terra")
             {
 
                 try
                 {
-                    return Ok(_planetaRepository.ObterTodos());
+                    var planeta = _planetaRepository.ObterPlanetaPorNome(nome);
+                    if (planeta == null)
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        return Ok(planeta);
+                    }
+                  
 
                 }
                 catch (Exception ex)

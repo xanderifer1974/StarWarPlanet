@@ -6,11 +6,15 @@ namespace StarWarPlanets.Repository.Context
 {
     public class StarWarPlanetContext: DbContext
     {
-        public DbSet<Planeta> Planetas { get; set; }
+        public  DbSet<Planeta> Planetas { get; set; }     
 
         public StarWarPlanetContext(DbContextOptions options) : base(options)
         {           
 
+        }
+
+        public StarWarPlanetContext()
+        {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
