@@ -7,8 +7,6 @@ namespace StarWarPlanets.Domain.Contratos
     {
         void Adicionar(TEntity entity);
 
-        TEntity ObterPorNome(string nome);
-
         TEntity ObterPorId(int id);
 
         IEnumerable<TEntity> ObterTodos();

@@ -128,6 +128,29 @@
                 }
             }
 
+            // Delete: api/Planeta/5
+            [HttpDelete("{id}")]
+            public IActionResult DeletarPlaneta(int id, [FromBody] Planeta planeta)
+            {
+                try
+                {
+                    if (id != planeta.Id)
+                    {
+                        return BadRequest("Id não corresponde ao planeta a ser deletado.");
+                    }
+
+                    _planetaRepository.Remover(planeta);
+
+
+                    return Ok(planeta);
+                }
+                catch (Exception ex)
+                {
+
+                    return BadRequest(ex.ToString());
+                }
+            }
+
         }
         
     }
