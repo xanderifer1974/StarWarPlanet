@@ -16,45 +16,46 @@
                 _planetaRepository = planetaRepository;
             }
 
-            /// <summary>
-            /// Retorna todos os planetas
-            /// </summary>
-            /// <returns></returns>  
-            //[HttpGet]
-            //public IActionResult Get()
-            //{
+           /// <summary>
+           /// Retorna todos os planetas
+           /// </summary>
+           /// <returns></returns>
+            [HttpGet]
+            public IActionResult Get()
+            {
 
-            //    try
-            //    {
-                   
-            //        return Ok(_planetaRepository.ObterTodos());
+                try
+                {
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        return BadRequest(ex.ToString());
-            //    }
-            //}
+                    return Ok(_planetaRepository.ObterTodos());
+
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.ToString());
+                }
+            }
 
             /// <summary>
             /// Retorna planeta por nome
             /// </summary>
             /// <returns></returns>  
-            [HttpGet()]          
-            public IActionResult Get(string nome="Terra")
+            [HttpGet("[action]")]
+            public IActionResult Get([FromQuery] string nome)
             {
 
                 try
                 {
                     var planeta = _planetaRepository.ObterPlanetaPorNome(nome);
-                    if (planeta == null)
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        return Ok(planeta);
-                    }
+                    return Ok(planeta);
+                    //if (planeta == null)
+                    //{
+                        
+                    //}
+                    //else
+                    //{
+                    //    return Ok(planeta);
+                    //}
                   
 
                 }
